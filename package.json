@@ -1,0 +1,24 @@
+{
+  "name": "solana-helloworld",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Chai Phonbopit <phonbopit@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "run": "npm run build && npm run deploy && npm run run-client",
+    "build": "cargo build-bpf --manifest-path=./Cargo.toml --bpf-out-dir=dist/program",
+    "deploy": "solana program deploy dist/program/solana_helloworld.so",
+    "run-client": "./node_modules/.bin/ts-node client/main.ts"
+  },
+  "dependencies": {
+    "@solana/web3.js": "1.37.1",
+    "borsh": "0.7.0",
+    "yaml": "2.0.0"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "1.0.1",
+    "@types/yaml": "1.9.7",
+    "ts-node": "10.7.0",
+    "typescript": "4.6.3"
+  }
+}
